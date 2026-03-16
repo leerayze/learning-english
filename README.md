@@ -123,13 +123,11 @@
 - [WhispersRed ASMR](https://www.youtube.com/user/WhispersRedASMR) - 英国英语角色扮演，语音清晰
 - [ASMR Teacher](https://www.youtube.com/watch?v=zQsV8VoOkrE) - 放松的词汇课，语音缓慢
 - [Teacher Tutors You on English](https://www.youtube.com/watch?v=y4kNe7sRYJs) - 模拟辅导场景
-- [AudioLove](https://audio.love/) - 一个成人音频平台，专门提供涩涩内容。包括情景短剧、幻想录音或角色扮演音声
 
 
 ## 口语练习 
 
 - [ChatGPT](https://chatgpt.com/) - 利用GPT的高级语音功能进行口语对话
-- [Grok](https://x.ai/grok) - X旗下的AI工具，有高级语音功能，甚至可以涩涩
 - [Speak English With Vanessa](https://www.youtube.com/@SpeakEnglishWithVanessa/videos) - 专注于发音技巧讲解，自然交谈方式
 - [AccurateEnglish](https://www.youtube.com/@AccurateEnglish) - 专业发音训练
 - [Conversation Exchange](https://www.conversationexchange.com/) - 免费语言交换平台
@@ -288,16 +286,12 @@
 - [Longreads](https://longreads.com/) - 一个专注于长篇优质文章的网站，对英语学习有很大帮助
 - [English Short Stories for Beginners](https://www.english-for-students.com/Short-Stories.html) - 提供专门为英语学习者撰写的短文
 - [American Literature](https://americanliterature.com/) - 网站提供了大量的经典文学作品，而且语法用词简单
-- [Webnovel](https://www.webnovel.com/) - 有大量的英文小说可供阅读，还有瑟瑟的英文小说内容
 - [MagazineLib](https://magazinelib.com/) - 免费下载杂志PDF网站
 - [MonkeyPen](https://monkeypen.com/) - 提供免费英语绘本下载的网站
-- [Lush Stories](https://www.lushstories.com/) - 一个英文成人涩涩文学社区，来自世界各地的作者上传各种情节的涩涩文学作品一同品阅
-- [Literpitica](https://www.literotica.com/) - 完全免费的英语涩涩文学与社区平台，涵盖小说、互动游戏、音频等等
 
 ### 英文漫画 📚
 
 - [Webtoon](https://www.webtoons.com/en/) - 网络漫画平台，提供多种题材
-- [Nyaa](https://nyaa.si/) - 下载英配动漫+英译漫画网站
 - [Tapas](https://tapas.io/) - 独立创作者网络漫画平台
 - [Manga Plus](https://mangaplus.shueisha.co.jp/updates) - 日漫英文平台，提供免费阅读
 - [MangaPanda](https://mangapanda.onl/) - 一个免费英文漫画在线阅读的网站，涵盖海贼，火影等英文版漫画
@@ -480,7 +474,6 @@
 - [不背句子](https://www.bubeijuzi.com/) - 新概念英语课文默写软件 学一课 默写一课 强化记忆 让语言表达精准
 - [多多记单词](https://ddjdc.com/) - 艾宾浩斯抗遗忘在线背词工具
 - [LLPlayer](https://github.com/umlx5h/LLPlayer) - 开源的语言学习播放器，支持双语字幕、AI 生成字幕、实时翻译等功能
-- [Backyard AI](https://backyard.ai/) - AI角色扮演应用，支持语音和文字，可以涩涩
 - [单词森林](https://wordforest.cn/) - 一个简洁实用的英语单词学习工具
 - [Typing Word](https://github.com/zyronon/typing-word) - 通过敲键盘形式给出的正反馈来背诵单词
 - [SayWow](https://saywow.ai/) - 有趣、好玩，模拟人生学英语，像母语者一样开口说
@@ -530,9 +523,3 @@
 
 欢迎贡献！如果你有好的资源，欢迎分享👏
 如果这个项目对你有帮助，请不要忘记给他一个star哦⭐️
-
-## Star History
-
-[![Star History Chart](https://api.star-history.com/svg?repos=knowledgefxg/learning-english&type=Date)](https://www.star-history.com/#knowledgefxg/learning-english&Date)
-
-

@@ -1,0 +1,2914 @@
+<!doctype html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>英语学习资源导航 | Learning English</title>
+        <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+            rel="stylesheet"
+        />
+        <style>
+            *,
+            *::before,
+            *::after {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+            :root {
+                --bg-base: #111111;
+                --bg-subtle: #191919;
+                --glass-bg: rgba(255, 255, 255, 0.05);
+                --glass-bg-hover: rgba(255, 255, 255, 0.09);
+                --glass-border: rgba(255, 255, 255, 0.07);
+                --glass-border-hover: rgba(255, 255, 255, 0.14);
+                --text: #d4d4d4;
+                --text-muted: rgba(255, 255, 255, 0.45);
+                --text-dim: rgba(255, 255, 255, 0.22);
+                --accent-1: #909090;
+                --accent-2: #787878;
+                --accent-3: #686868;
+                --divider: rgba(255, 255, 255, 0.08);
+                --hover-fill: rgba(255, 255, 255, 0.06);
+                --active-fill: rgba(255, 255, 255, 0.08);
+                --active-border: rgba(255, 255, 255, 0.1);
+                --card-bg: rgba(255, 255, 255, 0.04);
+                --card-border: rgba(255, 255, 255, 0.07);
+                --card-bg-hover: rgba(255, 255, 255, 0.07);
+                --card-border-hover: rgba(255, 255, 255, 0.14);
+                --card-shadow-hover: 0 4px 16px rgba(0, 0, 0, 0.15);
+                --hero-bg: rgba(255, 255, 255, 0.03);
+                --hero-border: rgba(255, 255, 255, 0.05);
+                --scrollbar-thumb: rgba(255, 255, 255, 0.08);
+                --scrollbar-thumb-hover: rgba(255, 255, 255, 0.14);
+                --depth-shadow: 0 4px 20px rgba(0, 0, 0, 0.18);
+                --av-text: rgba(255, 255, 255, 0.85);
+                --av-border: rgba(255, 255, 255, 0.1);
+            }
+            [data-theme="light"] {
+                --bg-base: #f2f2f0;
+                --bg-subtle: #e8e8e6;
+                --glass-bg: rgba(255, 255, 255, 0.72);
+                --glass-bg-hover: rgba(255, 255, 255, 0.88);
+                --glass-border: rgba(0, 0, 0, 0.08);
+                --glass-border-hover: rgba(0, 0, 0, 0.14);
+                --text: #1c1c1c;
+                --text-muted: rgba(0, 0, 0, 0.48);
+                --text-dim: rgba(0, 0, 0, 0.24);
+                --accent-1: #505050;
+                --accent-2: #686868;
+                --accent-3: #808080;
+                --divider: rgba(0, 0, 0, 0.07);
+                --hover-fill: rgba(0, 0, 0, 0.04);
+                --active-fill: rgba(0, 0, 0, 0.06);
+                --active-border: rgba(0, 0, 0, 0.1);
+                --card-bg: rgba(255, 255, 255, 0.6);
+                --card-border: rgba(0, 0, 0, 0.07);
+                --card-bg-hover: rgba(255, 255, 255, 0.85);
+                --card-border-hover: rgba(0, 0, 0, 0.12);
+                --card-shadow-hover: 0 4px 16px rgba(0, 0, 0, 0.06);
+                --hero-bg: rgba(255, 255, 255, 0.5);
+                --hero-border: rgba(0, 0, 0, 0.06);
+                --scrollbar-thumb: rgba(0, 0, 0, 0.1);
+                --scrollbar-thumb-hover: rgba(0, 0, 0, 0.18);
+                --depth-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+                --av-text: rgba(0, 0, 0, 0.7);
+                --av-border: rgba(0, 0, 0, 0.08);
+            }
+            body {
+                font-family:
+                    "Inter",
+                    -apple-system,
+                    system-ui,
+                    sans-serif;
+                color: var(--text);
+                line-height: 1.6;
+                min-height: 100vh;
+                overflow: hidden;
+                background: var(--bg-base);
+                transition:
+                    background 0.4s ease,
+                    color 0.4s ease;
+                --glass-blur: 24px;
+                --glass-saturate: 120%;
+                --sidebar-w: 240px;
+                --gap: 14px;
+            }
+            .scene {
+                position: fixed;
+                inset: 0;
+                z-index: 0;
+                background: var(--bg-base);
+                transition: background 0.4s ease;
+            }
+            .glass {
+                background: var(--glass-bg);
+                backdrop-filter: blur(var(--glass-blur))
+                    saturate(var(--glass-saturate));
+                -webkit-backdrop-filter: blur(var(--glass-blur))
+                    saturate(var(--glass-saturate));
+                border: 1px solid var(--glass-border);
+                box-shadow: var(--depth-shadow);
+                transition:
+                    background 0.4s,
+                    border-color 0.4s,
+                    box-shadow 0.4s;
+            }
+            .theme-toggle {
+                display: flex;
+                align-items: center;
+                gap: 8px;
+                padding: 8px 10px;
+                border-radius: 10px;
+                font-size: 13px;
+                font-weight: 500;
+                color: var(--text-muted);
+                background: none;
+                border: none;
+                cursor: pointer;
+                transition: all 0.25s;
+                width: 100%;
+                font-family: inherit;
+            }
+            .theme-toggle svg {
+                width: 16px;
+                height: 16px;
+                opacity: 0.6;
+                transition: opacity 0.25s;
+            }
+            .theme-toggle:hover {
+                color: var(--text);
+                background: var(--hover-fill);
+            }
+            .theme-toggle:hover svg {
+                opacity: 0.9;
+            }
+            .theme-toggle .icon-sun,
+            .m-btn .icon-sun {
+                display: none;
+            }
+            [data-theme="light"] .theme-toggle .icon-moon,
+            [data-theme="light"] .m-btn .icon-moon {
+                display: none;
+            }
+            [data-theme="light"] .theme-toggle .icon-sun,
+            [data-theme="light"] .m-btn .icon-sun {
+                display: block;
+            }
+            .app {
+                position: relative;
+                z-index: 1;
+                display: flex;
+                height: 100vh;
+                padding: var(--gap);
+                gap: var(--gap);
+            }
+            .sidebar {
+                width: var(--sidebar-w);
+                flex-shrink: 0;
+                border-radius: 18px;
+                padding: 20px 14px;
+                display: flex;
+                flex-direction: column;
+                overflow-y: auto;
+                overflow-x: hidden;
+            }
+            .sidebar::-webkit-scrollbar {
+                width: 0;
+            }
+            .sidebar-logo {
+                font-weight: 600;
+                font-size: 15px;
+                color: var(--text);
+                text-decoration: none;
+                display: flex;
+                align-items: center;
+                gap: 8px;
+                padding: 2px 8px 16px;
+                border-bottom: 1px solid var(--divider);
+                margin-bottom: 12px;
+            }
+            .sidebar-logo svg {
+                width: 20px;
+                height: 20px;
+                opacity: 0.85;
+            }
+            .sidebar-label {
+                font-size: 10px;
+                font-weight: 600;
+                text-transform: uppercase;
+                letter-spacing: 0.08em;
+                color: var(--text-dim);
+                padding: 0 8px;
+                margin-bottom: 6px;
+                margin-top: 8px;
+            }
+            .nav-item {
+                display: flex;
+                align-items: center;
+                gap: 9px;
+                padding: 7px 10px;
+                border-radius: 8px;
+                font-size: 12.5px;
+                font-weight: 500;
+                color: var(--text-muted);
+                text-decoration: none;
+                cursor: pointer;
+                transition: all 0.2s ease;
+                border: 1px solid transparent;
+                margin-bottom: 1px;
+            }
+            .nav-item svg {
+                width: 15px;
+                height: 15px;
+                opacity: 0.5;
+                flex-shrink: 0;
+                transition: opacity 0.2s;
+            }
+            .nav-item:hover {
+                color: var(--text);
+                background: var(--hover-fill);
+            }
+            .nav-item:hover svg {
+                opacity: 0.8;
+            }
+            .nav-item.active {
+                color: var(--text);
+                background: var(--active-fill);
+                border-color: var(--active-border);
+            }
+            .nav-item.active svg {
+                opacity: 1;
+            }
+            .nav-item .count {
+                margin-left: auto;
+                font-size: 10px;
+                font-weight: 600;
+                color: var(--text-dim);
+            }
+            .sidebar-footer {
+                margin-top: auto;
+                padding-top: 12px;
+                border-top: 1px solid var(--divider);
+            }
+            .main {
+                flex: 1;
+                min-width: 0;
+                border-radius: 18px;
+                overflow-y: auto;
+                overflow-x: hidden;
+                padding: 28px 32px;
+            }
+            .main::-webkit-scrollbar {
+                width: 6px;
+            }
+            .main::-webkit-scrollbar-track {
+                background: transparent;
+            }
+            .main::-webkit-scrollbar-thumb {
+                background: var(--scrollbar-thumb);
+                border-radius: 3px;
+            }
+            .main::-webkit-scrollbar-thumb:hover {
+                background: var(--scrollbar-thumb-hover);
+            }
+            .page {
+                display: none;
+                animation: fadeIn 0.3s ease;
+            }
+            .page.active {
+                display: block;
+            }
+            @keyframes fadeIn {
+                from {
+                    opacity: 0;
+                    transform: translateY(6px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+            .page-header {
+                margin-bottom: 24px;
+            }
+            .page-header h1 {
+                font-size: 26px;
+                font-weight: 700;
+                letter-spacing: -0.025em;
+                margin-bottom: 4px;
+            }
+            .page-header p {
+                font-size: 13px;
+                color: var(--text-muted);
+            }
+            .sub-section {
+                margin-bottom: 32px;
+            }
+            .sub-title {
+                font-size: 14px;
+                font-weight: 600;
+                color: var(--text-muted);
+                margin-bottom: 12px;
+                padding-bottom: 6px;
+                border-bottom: 1px solid var(--divider);
+            }
+            .card-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+                gap: 10px;
+            }
+            .card {
+                display: flex;
+                align-items: center;
+                gap: 12px;
+                padding: 12px 14px;
+                background: var(--card-bg);
+                border: 1px solid var(--card-border);
+                border-radius: 12px;
+                text-decoration: none;
+                color: inherit;
+                transition: all 0.25s ease;
+                cursor: pointer;
+            }
+            .card:hover {
+                background: var(--card-bg-hover);
+                border-color: var(--card-border-hover);
+                box-shadow: var(--card-shadow-hover);
+                transform: translateY(-1px);
+            }
+            .card-icon {
+                width: 32px;
+                height: 32px;
+                border-radius: 8px;
+                flex-shrink: 0;
+                overflow: hidden;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 13px;
+                font-weight: 700;
+                color: var(--av-text);
+                border: 1px solid var(--av-border);
+                background: var(--card-bg);
+            }
+            .card-icon img {
+                width: 20px;
+                height: 20px;
+                display: block;
+            }
+            .card-body {
+                flex: 1;
+                min-width: 0;
+            }
+            .card-name {
+                font-size: 13px;
+                font-weight: 600;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+            .card-desc {
+                font-size: 11.5px;
+                color: var(--text-muted);
+                line-height: 1.4;
+                margin-top: 2px;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                display: -webkit-box;
+                -webkit-line-clamp: 1;
+                -webkit-box-orient: vertical;
+            }
+            .home-hero {
+                border-radius: 16px;
+                padding: 48px 40px;
+                margin-bottom: 32px;
+                text-align: center;
+                background: var(--hero-bg);
+                border: 1px solid var(--hero-border);
+            }
+            .home-hero h1 {
+                font-size: 38px;
+                font-weight: 700;
+                letter-spacing: -0.03em;
+                margin-bottom: 12px;
+                line-height: 1.2;
+            }
+            .home-hero h1 .fluid {
+                color: var(--accent-1);
+            }
+            .home-hero .desc {
+                font-size: 15px;
+                color: var(--text-muted);
+                max-width: 520px;
+                margin: 0 auto 28px;
+                line-height: 1.7;
+            }
+            .home-stats {
+                display: inline-flex;
+            }
+            .home-stat {
+                padding: 0 32px;
+                text-align: center;
+                position: relative;
+            }
+            .home-stat + .home-stat::before {
+                content: "";
+                position: absolute;
+                left: 0;
+                top: 15%;
+                bottom: 15%;
+                width: 1px;
+                background: var(--divider);
+            }
+            .home-stat .num {
+                font-size: 28px;
+                font-weight: 700;
+            }
+            .home-stat .num.c1 {
+                color: var(--accent-1);
+            }
+            .home-stat .num.c2 {
+                color: var(--accent-2);
+            }
+            .home-stat .lbl {
+                font-size: 11px;
+                color: var(--text-dim);
+                margin-top: 2px;
+            }
+            .home-features {
+                display: grid;
+                grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+                gap: 14px;
+                margin-bottom: 32px;
+            }
+            .home-feature {
+                padding: 20px;
+                border-radius: 14px;
+                background: var(--card-bg);
+                border: 1px solid var(--card-border);
+            }
+            .home-feature svg {
+                width: 22px;
+                height: 22px;
+                color: var(--accent-1);
+                margin-bottom: 10px;
+                opacity: 0.7;
+            }
+            .home-feature h3 {
+                font-size: 14px;
+                font-weight: 600;
+                margin-bottom: 6px;
+            }
+            .home-feature p {
+                font-size: 12px;
+                color: var(--text-muted);
+                line-height: 1.5;
+            }
+            .home-about {
+                font-size: 13px;
+                color: var(--text-muted);
+                line-height: 1.8;
+                max-width: 640px;
+            }
+            .home-about strong {
+                color: var(--text);
+                font-weight: 600;
+            }
+            /* Mobile menu button - hidden on desktop */
+            .mobile-header {
+                display: none;
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                z-index: 60;
+                height: 52px;
+                padding: 0 16px;
+                align-items: center;
+                justify-content: space-between;
+                background: var(--glass-bg);
+                backdrop-filter: blur(20px) saturate(120%);
+                -webkit-backdrop-filter: blur(20px) saturate(120%);
+                border-bottom: 1px solid var(--glass-border);
+            }
+            .mobile-header .m-logo {
+                font-weight: 600;
+                font-size: 14px;
+                color: var(--text);
+                display: flex;
+                align-items: center;
+                gap: 6px;
+                text-decoration: none;
+            }
+            .mobile-header .m-logo svg {
+                width: 18px;
+                height: 18px;
+                opacity: 0.85;
+            }
+            .m-actions {
+                display: flex;
+                align-items: center;
+                gap: 4px;
+            }
+            .m-btn {
+                width: 36px;
+                height: 36px;
+                border-radius: 8px;
+                border: none;
+                background: none;
+                color: var(--text-muted);
+                cursor: pointer;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                transition: all 0.2s;
+            }
+            .m-btn:hover {
+                background: var(--hover-fill);
+                color: var(--text);
+            }
+            .m-btn svg {
+                width: 20px;
+                height: 20px;
+            }
+
+            /* Mobile overlay menu */
+            .mobile-overlay {
+                display: none;
+                position: fixed;
+                inset: 0;
+                z-index: 70;
+                background: rgba(0, 0, 0, 0.5);
+                opacity: 0;
+                transition: opacity 0.3s;
+            }
+            .mobile-overlay.open {
+                opacity: 1;
+            }
+            .mobile-drawer {
+                position: absolute;
+                top: 0;
+                left: 0;
+                bottom: 0;
+                width: 280px;
+                background: var(--bg-subtle);
+                padding: 20px 14px;
+                overflow-y: auto;
+                transform: translateX(-100%);
+                transition: transform 0.3s ease;
+            }
+            .mobile-overlay.open .mobile-drawer {
+                transform: translateX(0);
+            }
+            .mobile-drawer .nav-item {
+                padding: 10px 12px;
+                font-size: 14px;
+                border-radius: 10px;
+                margin-bottom: 2px;
+            }
+            .mobile-drawer .nav-item svg {
+                width: 18px;
+                height: 18px;
+            }
+            .mobile-drawer .sidebar-label {
+                margin-top: 12px;
+                margin-bottom: 8px;
+            }
+            .mobile-drawer .sidebar-footer {
+                margin-top: 16px;
+                padding-top: 16px;
+            }
+            .mobile-drawer .theme-toggle {
+                font-size: 14px;
+                padding: 10px 12px;
+            }
+
+            @media (max-width: 768px) {
+                .app {
+                    flex-direction: column;
+                    height: auto;
+                    min-height: 100vh;
+                    padding: 0;
+                    gap: 0;
+                }
+                .sidebar {
+                    display: none;
+                }
+                .mobile-header {
+                    display: flex;
+                }
+                .mobile-overlay {
+                    display: block;
+                    pointer-events: none;
+                }
+                .mobile-overlay.open {
+                    pointer-events: auto;
+                }
+                .main {
+                    border-radius: 0;
+                    padding: 68px 14px 24px;
+                    min-height: 100vh;
+                    background: var(--bg-base);
+                    backdrop-filter: none;
+                    -webkit-backdrop-filter: none;
+                    border: none;
+                    box-shadow: none;
+                    overflow-y: visible;
+                }
+                body {
+                    overflow: auto;
+                }
+                .page-header h1 {
+                    font-size: 22px;
+                }
+                .page-header p {
+                    font-size: 12px;
+                }
+                .home-hero {
+                    padding: 28px 16px;
+                }
+                .home-hero h1 {
+                    font-size: 26px;
+                }
+                .home-hero .desc {
+                    font-size: 13px;
+                }
+                .home-stat {
+                    padding: 0 18px;
+                }
+                .home-stat .num {
+                    font-size: 22px;
+                }
+                .home-features {
+                    grid-template-columns: 1fr;
+                    gap: 10px;
+                }
+                .sub-title {
+                    font-size: 13px;
+                }
+                .card-grid {
+                    grid-template-columns: repeat(
+                        auto-fill,
+                        minmax(160px, 1fr)
+                    );
+                    gap: 8px;
+                }
+                .card {
+                    padding: 10px;
+                    gap: 10px;
+                    border-radius: 10px;
+                }
+                .card-icon {
+                    width: 28px;
+                    height: 28px;
+                    border-radius: 6px;
+                }
+                .card-icon img {
+                    width: 16px;
+                    height: 16px;
+                }
+                .card-name {
+                    font-size: 12px;
+                }
+                .card-desc {
+                    font-size: 10.5px;
+                }
+            }
+            @media (max-width: 420px) {
+                .card-grid {
+                    grid-template-columns: 1fr;
+                }
+            }
+            @media (prefers-reduced-motion: reduce) {
+                * {
+                    animation: none !important;
+                    transition-duration: 0.01ms !important;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div class="scene"></div>
+
+        <!-- Mobile Header -->
+        <div class="mobile-header">
+            <a href="#" class="m-logo" id="mLogo">
+                <svg
+                    viewBox="0 0 512 512"
+                    fill="currentColor"
+                    width="18"
+                    height="18"
+                >
+                    <path
+                        d="M456,168h-8v-44.977c0-15.027-13.623-26.219-28.109-23.648l-163.892,28.504L92.172,98.992C77.56,96.372,64,107.656,64,122.625V168h-8c-8.836,0-16,7.163-16,16v184c0,8.836,7.164,16,16,16h130.745c13.602,0,19.88,6.625,27.882,14.627c6.001,6.001,14.141,9.373,22.627,9.373c13.566,0,23.924,0,37.49,0c8.487,0,16.626-3.372,22.627-9.373c8-8,14.268-14.627,27.882-14.627H456c8.836,0,16-7.164,16-16V184C472,175.163,464.836,168,456,168z M422.633,115.141c4.748-0.848,9.367,2.787,9.367,7.883v199.109c0,3.891-2.781,7.203-6.609,7.883L264,358.469V142.727L422.633,115.141z M80,122.625c0-4.952,4.446-8.733,9.391-7.883L248,142.711v215.758L86.609,330.016c-3.828-0.68-6.609-3.992-6.609-7.883V122.625z M288.125,267.727c-0.773-4.352,2.133-8.5,6.484-9.266l104-18.336c4.336-0.82,8.5,2.133,9.266,6.484c0.773,4.352-2.133,8.5-6.484,9.266l-104,18.336c-0.469,0.086-0.938,0.125-1.398,0.125C292.18,274.336,288.805,271.609,288.125,267.727z M288.125,227.727c-0.773-4.352,2.133-8.5,6.484-9.266l104-18.336c4.336-0.805,8.5,2.133,9.266,6.484c0.773,4.352-2.133,8.5-6.484,9.266l-104,18.336c-0.469,0.086-0.938,0.125-1.398,0.125C292.18,234.336,288.805,231.609,288.125,227.727z M288.125,187.727c-0.773-4.352,2.133-8.5,6.484-9.266l104-18.336c4.336-0.82,8.5,2.133,9.266,6.484c0.773,4.352-2.133,8.5-6.484,9.266l-104,18.336c-0.469,0.086-0.938,0.125-1.398,0.125C292.18,194.336,288.805,191.609,288.125,187.727z M288.125,307.727c-0.773-4.352,2.133-8.5,6.484-9.266l104-18.336c4.336-0.805,8.5,2.133,9.266,6.484c0.773,4.352-2.133,8.5-6.484,9.266l-104,18.336c-0.469,0.086-0.938,0.125-1.398,0.125C292.18,314.336,288.805,311.609,288.125,307.727z M118.239,218.242c-11.85-14.068-13.889-33.678-3.614-45.243c12.414-13.972,35.529-10.978,49.375,5.462c13.847-11.557,36.961-6.399,49.375,11.951c10.275,15.188,8.235,34.079-3.614,43.968l-32.5,27.125c-7.318,6.108-19.204,4.012-26.522-4.677L118.239,218.242z"
+                    />
+                </svg>
+                英语学习导航
+            </a>
+            <div class="m-actions">
+                <button class="m-btn" id="mTheme">
+                    <svg
+                        class="icon-moon"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                    >
+                        <path
+                            d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"
+                        />
+                    </svg>
+                    <svg
+                        class="icon-sun"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                    >
+                        <circle cx="12" cy="12" r="5" />
+                        <line x1="12" y1="1" x2="12" y2="3" />
+                        <line x1="12" y1="21" x2="12" y2="23" />
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+                        <line x1="1" y1="12" x2="3" y2="12" />
+                        <line x1="21" y1="12" x2="23" y2="12" />
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+                    </svg>
+                </button>
+                <button class="m-btn" id="mMenuBtn">
+                    <svg
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                    >
+                        <line x1="3" y1="6" x2="21" y2="6" />
+                        <line x1="3" y1="12" x2="21" y2="12" />
+                        <line x1="3" y1="18" x2="21" y2="18" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Drawer -->
+        <div class="mobile-overlay" id="mOverlay">
+            <div class="mobile-drawer" id="mDrawer">
+                <div class="sidebar-label">资源分类</div>
+                <a class="nav-item active" data-page="home"
+                    ><svg
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                    >
+                        <path
+                            d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"
+                        />
+                        <polyline points="9 22 9 12 15 12 15 22" /></svg
+                    >首页</a
+                >
+                <a class="nav-item" data-page="listening"
+                    ><svg
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                    >
+                        <path d="M3 18v-6a9 9 0 0 1 18 0v6" />
+                        <path
+                            d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"
+                        /></svg
+                    >听力学习<span class="count">58</span></a
+                >
+                <a class="nav-item" data-page="speaking"
+                    ><svg
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                    >
+                        <path d="M12 6V2H8" />
+                        <path
+                            d="m8 18-4 4V8a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2Z"
+                        /></svg
+                    >口语练习<span class="count">13</span></a
+                >
+                <a class="nav-item" data-page="video"
+                    ><svg
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                    >
+                        <polygon points="5 3 19 12 5 21 5 3" /></svg
+                    >视频学习<span class="count">90</span></a
+                >
+                <a class="nav-item" data-page="reading"
+                    ><svg
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                    >
+                        <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" />
+                        <path
+                            d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"
+                        /></svg
+                    >阅读材料<span class="count">30</span></a
+                >
+                <a class="nav-item" data-page="games"
+                    ><svg
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                    >
+                        <rect
+                            width="14"
+                            height="20"
+                            x="5"
+                            y="2"
+                            rx="2"
+                            ry="2"
+                        />
+                        <path d="M12 18h.01" /></svg
+                    >电子游戏<span class="count">30</span></a
+                >
+                <a class="nav-item" data-page="blogs"
+                    ><svg
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                    >
+                        <path d="M12 20h9" />
+                        <path
+                            d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"
+                        /></svg
+                    >网站博客<span class="count">40</span></a
+                >
+                <a class="nav-item" data-page="social"
+                    ><svg
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                    >
+                        <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+                        <circle cx="9" cy="7" r="4" />
+                        <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
+                        <path d="M16 3.13a4 4 0 0 1 0 7.75" /></svg
+                    >社交媒体<span class="count">30</span></a
+                >
+                <a class="nav-item" data-page="tools"
+                    ><svg
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                    >
+                        <path
+                            d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"
+                        /></svg
+                    >实用工具<span class="count">28</span></a
+                >
+                <a class="nav-item" data-page="exam"
+                    ><svg
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                    >
+                        <path d="M22 10v6M2 10l10-5 10 5-10 5z" />
+                        <path d="M6 12v5c3 3 10 3 12 0v-5" /></svg
+                    >适合应试<span class="count">3</span></a
+                >
+                <a class="nav-item" data-page="other"
+                    ><svg
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                    >
+                        <circle cx="12" cy="12" r="1" />
+                        <circle cx="19" cy="12" r="1" />
+                        <circle cx="5" cy="12" r="1" /></svg
+                    >其他资源<span class="count">6</span></a
+                >
+                <a class="nav-item" data-page="courses"
+                    ><svg
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                    >
+                        <rect width="18" height="18" x="3" y="3" rx="2" />
+                        <path d="m9 8 6 4-6 4Z" /></svg
+                    >在线课程<span class="count">5</span></a
+                >
+                <a class="nav-item" data-page="kids"
+                    ><svg
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                    >
+                        <circle cx="12" cy="12" r="10" />
+                        <path d="M8 14s1.5 2 4 2 4-2 4-2" />
+                        <line x1="9" x2="9.01" y1="9" y2="9" />
+                        <line x1="15" x2="15.01" y1="9" y2="9" /></svg
+                    >适合孩子<span class="count">6</span></a
+                >
+            </div>
+        </div>
+
+        <div class="app">
+            <aside class="sidebar glass">
+                <a href="#" class="sidebar-logo" data-page="home">
+                    <svg
+                        viewBox="0 0 512 512"
+                        fill="currentColor"
+                        width="20"
+                        height="20"
+                    >
+                        <path
+                            d="M456,168h-8v-44.977c0-15.027-13.623-26.219-28.109-23.648l-163.892,28.504L92.172,98.992C77.56,96.372,64,107.656,64,122.625V168h-8c-8.836,0-16,7.163-16,16v184c0,8.836,7.164,16,16,16h130.745c13.602,0,19.88,6.625,27.882,14.627c6.001,6.001,14.141,9.373,22.627,9.373c13.566,0,23.924,0,37.49,0c8.487,0,16.626-3.372,22.627-9.373c8-8,14.268-14.627,27.882-14.627H456c8.836,0,16-7.164,16-16V184C472,175.163,464.836,168,456,168z M422.633,115.141c4.748-0.848,9.367,2.787,9.367,7.883v199.109c0,3.891-2.781,7.203-6.609,7.883L264,358.469V142.727L422.633,115.141z M80,122.625c0-4.952,4.446-8.733,9.391-7.883L248,142.711v215.758L86.609,330.016c-3.828-0.68-6.609-3.992-6.609-7.883V122.625z M288.125,267.727c-0.773-4.352,2.133-8.5,6.484-9.266l104-18.336c4.336-0.82,8.5,2.133,9.266,6.484c0.773,4.352-2.133,8.5-6.484,9.266l-104,18.336c-0.469,0.086-0.938,0.125-1.398,0.125C292.18,274.336,288.805,271.609,288.125,267.727z M288.125,227.727c-0.773-4.352,2.133-8.5,6.484-9.266l104-18.336c4.336-0.805,8.5,2.133,9.266,6.484c0.773,4.352-2.133,8.5-6.484,9.266l-104,18.336c-0.469,0.086-0.938,0.125-1.398,0.125C292.18,234.336,288.805,231.609,288.125,227.727z M288.125,187.727c-0.773-4.352,2.133-8.5,6.484-9.266l104-18.336c4.336-0.82,8.5,2.133,9.266,6.484c0.773,4.352-2.133,8.5-6.484,9.266l-104,18.336c-0.469,0.086-0.938,0.125-1.398,0.125C292.18,194.336,288.805,191.609,288.125,187.727z M288.125,307.727c-0.773-4.352,2.133-8.5,6.484-9.266l104-18.336c4.336-0.805,8.5,2.133,9.266,6.484c0.773,4.352-2.133,8.5-6.484,9.266l-104,18.336c-0.469,0.086-0.938,0.125-1.398,0.125C292.18,314.336,288.805,311.609,288.125,307.727z M118.239,218.242c-11.85-14.068-13.889-33.678-3.614-45.243c12.414-13.972,35.529-10.978,49.375,5.462c13.847-11.557,36.961-6.399,49.375,11.951c10.275,15.188,8.235,34.079-3.614,43.968l-32.5,27.125c-7.318,6.108-19.204,4.012-26.522-4.677L118.239,218.242z"
+                        />
+                    </svg>
+                    英语学习导航
+                </a>
+                <div class="sidebar-label">资源分类</div>
+                <a class="nav-item active" data-page="home"
+                    ><svg
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                    >
+                        <path
+                            d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"
+                        />
+                        <polyline points="9 22 9 12 15 12 15 22" /></svg
+                    >首页</a
+                >
+                <a class="nav-item" data-page="listening"
+                    ><svg
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                    >
+                        <path d="M3 18v-6a9 9 0 0 1 18 0v6" />
+                        <path
+                            d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"
+                        /></svg
+                    >听力学习<span class="count">58</span></a
+                >
+                <a class="nav-item" data-page="speaking"
+                    ><svg
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                    >
+                        <path d="M12 6V2H8" />
+                        <path
+                            d="m8 18-4 4V8a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2Z"
+                        /></svg
+                    >口语练习<span class="count">13</span></a
+                >
+                <a class="nav-item" data-page="video"
+                    ><svg
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                    >
+                        <polygon points="5 3 19 12 5 21 5 3" /></svg
+                    >视频学习<span class="count">90</span></a
+                >
+                <a class="nav-item" data-page="reading"
+                    ><svg
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                    >
+                        <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" />
+                        <path
+                            d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"
+                        /></svg
+                    >阅读材料<span class="count">30</span></a
+                >
+                <a class="nav-item" data-page="games"
+                    ><svg
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                    >
+                        <rect
+                            width="14"
+                            height="20"
+                            x="5"
+                            y="2"
+                            rx="2"
+                            ry="2"
+                        />
+                        <path d="M12 18h.01" /></svg
+                    >电子游戏<span class="count">30</span></a
+                >
+                <a class="nav-item" data-page="blogs"
+                    ><svg
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                    >
+                        <path d="M12 20h9" />
+                        <path
+                            d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"
+                        /></svg
+                    >网站博客<span class="count">40</span></a
+                >
+                <a class="nav-item" data-page="social"
+                    ><svg
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                    >
+                        <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+                        <circle cx="9" cy="7" r="4" />
+                        <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
+                        <path d="M16 3.13a4 4 0 0 1 0 7.75" /></svg
+                    >社交媒体<span class="count">30</span></a
+                >
+                <a class="nav-item" data-page="tools"
+                    ><svg
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                    >
+                        <path
+                            d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"
+                        /></svg
+                    >实用工具<span class="count">28</span></a
+                >
+                <a class="nav-item" data-page="exam"
+                    ><svg
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                    >
+                        <path d="M22 10v6M2 10l10-5 10 5-10 5z" />
+                        <path d="M6 12v5c3 3 10 3 12 0v-5" /></svg
+                    >适合应试<span class="count">3</span></a
+                >
+                <a class="nav-item" data-page="other"
+                    ><svg
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                    >
+                        <circle cx="12" cy="12" r="1" />
+                        <circle cx="19" cy="12" r="1" />
+                        <circle cx="5" cy="12" r="1" /></svg
+                    >其他资源<span class="count">6</span></a
+                >
+                <a class="nav-item" data-page="courses"
+                    ><svg
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                    >
+                        <rect width="18" height="18" x="3" y="3" rx="2" />
+                        <path d="m9 8 6 4-6 4Z" /></svg
+                    >在线课程<span class="count">5</span></a
+                >
+                <a class="nav-item" data-page="kids"
+                    ><svg
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                    >
+                        <circle cx="12" cy="12" r="10" />
+                        <path d="M8 14s1.5 2 4 2 4-2 4-2" />
+                        <line x1="9" x2="9.01" y1="9" y2="9" />
+                        <line x1="15" x2="15.01" y1="9" y2="9" /></svg
+                    >适合孩子<span class="count">6</span></a
+                >
+                <div class="sidebar-footer">
+                    <button class="theme-toggle" id="themeToggle">
+                        <svg
+                            class="icon-moon"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                        >
+                            <path
+                                d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"
+                            />
+                        </svg>
+                        <svg
+                            class="icon-sun"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                        >
+                            <circle cx="12" cy="12" r="5" />
+                            <line x1="12" y1="1" x2="12" y2="3" />
+                            <line x1="12" y1="21" x2="12" y2="23" />
+                            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+                            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+                            <line x1="1" y1="12" x2="3" y2="12" />
+                            <line x1="21" y1="12" x2="23" y2="12" />
+                            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+                            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+                        </svg>
+                        <span id="themeLabel">切换亮色</span>
+                    </button>
+                </div>
+            </aside>
+            <main class="main glass">
+                <!-- Home -->
+                <div class="page active" id="page-home">
+                    <div class="home-hero">
+                        <h1>英语学习<span class="fluid">资源导航</span></h1>
+                        <p class="desc">
+                            精选全网优质英语学习资源合集，涵盖听力、口语、阅读、视频、游戏等核心技能。
+                        </p>
+                        <div class="home-stats">
+                            <div class="home-stat">
+                                <div class="num c1">200+</div>
+                                <div class="lbl">精选资源</div>
+                            </div>
+                            <div class="home-stat">
+                                <div class="num c2">13</div>
+                                <div class="lbl">分类目录</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="home-features">
+                        <div class="home-feature">
+                            <svg
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                            >
+                                <path d="M3 18v-6a9 9 0 0 1 18 0v6" />
+                                <path
+                                    d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"
+                                />
+                            </svg>
+                            <h3>沉浸式听力</h3>
+                            <p>
+                                从 BBC、VOA 慢速英语到 Lex Fridman
+                                深度访谈，覆盖播客、电台、脱口秀、ASMR 等 58
+                                个听力资源，逐级提升听力水平。
+                            </p>
+                        </div>
+                        <div class="home-feature">
+                            <svg
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                            >
+                                <path d="M12 6V2H8" />
+                                <path
+                                    d="m8 18-4 4V8a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2Z"
+                                />
+                            </svg>
+                            <h3>开口说英语</h3>
+                            <p>
+                                通过 ChatGPT 语音对话、iTalki
+                                外教一对一、Duolingo
+                                发音反馈等工具，打破哑巴英语，建立口语自信。
+                            </p>
+                        </div>
+                        <div class="home-feature">
+                            <svg
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                            >
+                                <polygon points="5 3 19 12 5 21 5 3" />
+                            </svg>
+                            <h3>视频学习</h3>
+                            <p>
+                                精选 90+ 个 YouTube 频道与视频资源，从 TED
+                                演讲到情景喜剧，从零基础入门到高级学术英语，用视频构建英语思维。
+                            </p>
+                        </div>
+                        <div class="home-feature">
+                            <svg
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                            >
+                                <path
+                                    d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"
+                                />
+                                <path
+                                    d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"
+                                />
+                            </svg>
+                            <h3>广泛阅读</h3>
+                            <p>
+                                分级新闻、免费电子书、英文漫画等 30
+                                个阅读资源，从简单的分级读物到原版文学，培养英语阅读习惯。
+                            </p>
+                        </div>
+                        <div class="home-feature">
+                            <svg
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                            >
+                                <rect
+                                    width="14"
+                                    height="20"
+                                    x="5"
+                                    y="2"
+                                    rx="2"
+                                    ry="2"
+                                />
+                                <path d="M12 18h.01" />
+                            </svg>
+                            <h3>寓教于乐</h3>
+                            <p>
+                                30
+                                款精选游戏让学习不再枯燥——从网页小游戏到沉浸式单机大作，在冒险中自然习得英语词汇和表达。
+                            </p>
+                        </div>
+                        <div class="home-feature">
+                            <svg
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                            >
+                                <path
+                                    d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"
+                                />
+                            </svg>
+                            <h3>效率工具</h3>
+                            <p>
+                                Anki 记忆曲线、Grammarly 写作校对、Language
+                                Reactor 视频字幕等 28 款工具，让学习事半功倍。
+                            </p>
+                        </div>
+                    </div>
+
+                    <div
+                        style="
+                            text-align: center;
+                            padding: 12px 0 0;
+                            font-size: 11px;
+                            color: var(--text-dim);
+                        "
+                    >
+                        最后更新：2026-03-15
+                    </div>
+                </div>
+
+                <!-- 听力学习 -->
+                <div class="page" id="page-listening">
+                    <div class="page-header">
+                        <h1>听力学习</h1>
+                        <p>播客、电台、访谈、脱口秀等多种听力资源</p>
+                    </div>
+                    <div class="sub-section">
+                        <div class="sub-title">播客资源</div>
+                        <div class="card-grid" id="s-podcast"></div>
+                    </div>
+                    <div class="sub-section">
+                        <div class="sub-title">科技播客</div>
+                        <div class="card-grid" id="s-techpod"></div>
+                    </div>
+                    <div class="sub-section">
+                        <div class="sub-title">访谈节目</div>
+                        <div class="card-grid" id="s-interview"></div>
+                    </div>
+                    <div class="sub-section">
+                        <div class="sub-title">脱口秀</div>
+                        <div class="card-grid" id="s-talkshow"></div>
+                    </div>
+                    <div class="sub-section">
+                        <div class="sub-title">电台网站</div>
+                        <div class="card-grid" id="s-radio"></div>
+                    </div>
+                    <div class="sub-section">
+                        <div class="sub-title">ASMR专题</div>
+                        <div class="card-grid" id="s-asmr"></div>
+                    </div>
+                </div>
+
+                <!-- 口语练习 -->
+                <div class="page" id="page-speaking">
+                    <div class="page-header">
+                        <h1>口语练习</h1>
+                        <p>AI对话、外教一对一、语伴交流等口语练习资源</p>
+                    </div>
+                    <div class="sub-section">
+                        <div class="sub-title">对话与发音</div>
+                        <div class="card-grid" id="s-speak"></div>
+                    </div>
+                </div>
+
+                <!-- 视频学习 -->
+                <div class="page" id="page-video">
+                    <div class="page-header">
+                        <h1>视频学习</h1>
+                        <p>YouTube频道、学习视频、视频网站等资源</p>
+                    </div>
+                    <div class="sub-section">
+                        <div class="sub-title">YouTube频道</div>
+                        <div class="card-grid" id="s-yt"></div>
+                    </div>
+                    <div class="sub-section">
+                        <div class="sub-title">学习视频</div>
+                        <div class="card-grid" id="s-learnvid"></div>
+                    </div>
+                    <div class="sub-section">
+                        <div class="sub-title">视频网站</div>
+                        <div class="card-grid" id="s-vidsite"></div>
+                    </div>
+                </div>
+
+                <!-- 阅读材料 -->
+                <div class="page" id="page-reading">
+                    <div class="page-header">
+                        <h1>阅读材料</h1>
+                        <p>新闻、书籍、漫画等英语阅读资源</p>
+                    </div>
+                    <div class="sub-section">
+                        <div class="sub-title">新闻网站</div>
+                        <div class="card-grid" id="s-news"></div>
+                    </div>
+                    <div class="sub-section">
+                        <div class="sub-title">英文小说/书籍</div>
+                        <div class="card-grid" id="s-books"></div>
+                    </div>
+                    <div class="sub-section">
+                        <div class="sub-title">英文漫画</div>
+                        <div class="card-grid" id="s-comics"></div>
+                    </div>
+                </div>
+
+                <!-- 电子游戏 -->
+                <div class="page" id="page-games">
+                    <div class="page-header">
+                        <h1>电子游戏</h1>
+                        <p>边玩游戏边练英语</p>
+                    </div>
+                    <div class="sub-section">
+                        <div class="sub-title">网页游戏</div>
+                        <div class="card-grid" id="s-webgame"></div>
+                    </div>
+                    <div class="sub-section">
+                        <div class="sub-title">单机游戏</div>
+                        <div class="card-grid" id="s-pcgame"></div>
+                    </div>
+                    <div class="sub-section">
+                        <div class="sub-title">网络游戏</div>
+                        <div class="card-grid" id="s-onlinegame"></div>
+                    </div>
+                </div>
+
+                <!-- 网站博客 -->
+                <div class="page" id="page-blogs">
+                    <div class="page-header">
+                        <h1>网站博客</h1>
+                        <p>英语学习平台、语法工具、互动网站等</p>
+                    </div>
+                    <div class="sub-section">
+                        <div class="card-grid" id="s-blogs"></div>
+                    </div>
+                </div>
+
+                <!-- 社交媒体 -->
+                <div class="page" id="page-social">
+                    <div class="page-header">
+                        <h1>社交媒体</h1>
+                        <p>各平台上有价值的英语学习账号</p>
+                    </div>
+                    <div class="sub-section">
+                        <div class="sub-title">X (原推特)</div>
+                        <div class="card-grid" id="s-x"></div>
+                    </div>
+                    <div class="sub-section">
+                        <div class="sub-title">Telegram</div>
+                        <div class="card-grid" id="s-tg"></div>
+                    </div>
+                    <div class="sub-section">
+                        <div class="sub-title">Bilibili</div>
+                        <div class="card-grid" id="s-bili"></div>
+                    </div>
+                </div>
+
+                <!-- 实用工具 -->
+                <div class="page" id="page-tools">
+                    <div class="page-header">
+                        <h1>实用工具</h1>
+                        <p>词典、写作助手、记忆软件、浏览器插件等</p>
+                    </div>
+                    <div class="sub-section">
+                        <div class="card-grid" id="s-tools"></div>
+                    </div>
+                </div>
+
+                <!-- 适合应试 -->
+                <div class="page" id="page-exam">
+                    <div class="page-header">
+                        <h1>适合应试</h1>
+                        <p>适合为考试准备的英语学习资源</p>
+                    </div>
+                    <div class="sub-section">
+                        <div class="card-grid" id="s-exam"></div>
+                    </div>
+                </div>
+
+                <!-- 其他资源 -->
+                <div class="page" id="page-other">
+                    <div class="page-header">
+                        <h1>其他资源</h1>
+                        <p>学习指南、发音纠正、开发者英语等</p>
+                    </div>
+                    <div class="sub-section">
+                        <div class="card-grid" id="s-other"></div>
+                    </div>
+                </div>
+
+                <!-- 在线课程 -->
+                <div class="page" id="page-courses">
+                    <div class="page-header">
+                        <h1>在线课程</h1>
+                        <p>知名平台的英语课程</p>
+                    </div>
+                    <div class="sub-section">
+                        <div class="card-grid" id="s-courses"></div>
+                    </div>
+                </div>
+
+                <!-- 适合孩子 -->
+                <div class="page" id="page-kids">
+                    <div class="page-header">
+                        <h1>适合孩子</h1>
+                        <p>儿歌、动画、绘本等儿童英语资源</p>
+                    </div>
+                    <div class="sub-section">
+                        <div class="card-grid" id="s-kids"></div>
+                    </div>
+                </div>
+            </main>
+        </div>
+        <script>
+            function fi(domain) {
+                return (
+                    "https://www.google.com/s2/favicons?domain=" +
+                    domain +
+                    "&sz=32"
+                );
+            }
+            function C(url, name, desc) {
+                const d = new URL(url).hostname;
+                return `<a href="${url}" target="_blank" class="card"><div class="card-icon"><img src="${fi(d)}" loading="lazy" onerror="this.style.display='none';this.parentNode.textContent='${name[0]}'"></div><div class="card-body"><div class="card-name">${name}</div><div class="card-desc">${desc}</div></div></a>`;
+            }
+            // Page nav (desktop sidebar + mobile drawer)
+            document.querySelectorAll("[data-page]").forEach((item) => {
+                item.addEventListener("click", (e) => {
+                    e.preventDefault();
+                    const t = item.dataset.page;
+                    document
+                        .querySelectorAll(".page")
+                        .forEach((p) => p.classList.remove("active"));
+                    document
+                        .querySelectorAll(".nav-item")
+                        .forEach((n) => n.classList.remove("active"));
+                    document
+                        .getElementById("page-" + t)
+                        ?.classList.add("active");
+                    document
+                        .querySelectorAll('[data-page="' + t + '"]')
+                        .forEach((n) => {
+                            if (n.classList.contains("nav-item"))
+                                n.classList.add("active");
+                        });
+                    document.querySelector(".main")?.scrollTo(0, 0);
+                    window.scrollTo(0, 0);
+                    // Close mobile drawer
+                    const ov = document.getElementById("mOverlay");
+                    if (ov) ov.classList.remove("open");
+                });
+            });
+
+            // Desktop theme toggle
+            const tgl = document.getElementById("themeToggle"),
+                lbl = document.getElementById("themeLabel");
+            let dk = true;
+            function toggleTheme() {
+                dk = !dk;
+                document.documentElement.setAttribute(
+                    "data-theme",
+                    dk ? "" : "light",
+                );
+                if (lbl) lbl.textContent = dk ? "切换亮色" : "切换暗色";
+            }
+            if (tgl) tgl.addEventListener("click", toggleTheme);
+
+            // Mobile menu
+            const mMenuBtn = document.getElementById("mMenuBtn"),
+                mOverlay = document.getElementById("mOverlay");
+            if (mMenuBtn && mOverlay) {
+                mMenuBtn.addEventListener("click", () =>
+                    mOverlay.classList.add("open"),
+                );
+                mOverlay.addEventListener("click", (e) => {
+                    if (e.target === mOverlay)
+                        mOverlay.classList.remove("open");
+                });
+            }
+            // Mobile theme
+            const mTheme = document.getElementById("mTheme");
+            if (mTheme) mTheme.addEventListener("click", toggleTheme);
+            // Mobile logo -> home
+            const mLogo = document.getElementById("mLogo");
+            if (mLogo)
+                mLogo.addEventListener("click", (e) => {
+                    e.preventDefault();
+                    document
+                        .querySelectorAll(".page")
+                        .forEach((p) => p.classList.remove("active"));
+                    document
+                        .querySelectorAll(".nav-item")
+                        .forEach((n) => n.classList.remove("active"));
+                    document
+                        .getElementById("page-home")
+                        ?.classList.add("active");
+                    document
+                        .querySelectorAll('[data-page="home"]')
+                        .forEach((n) => {
+                            if (n.classList.contains("nav-item"))
+                                n.classList.add("active");
+                        });
+                    window.scrollTo(0, 0);
+                });
+
+            // === Data ===
+            const D = {
+                "s-podcast": [
+                    [
+                        "https://www.bbc.co.uk/learningenglish",
+                        "BBC Learning English",
+                        "BBC官方英语学习播客",
+                    ],
+                    [
+                        "https://www.youtube.com/@AJHogeEffortlessEnglish",
+                        "A.J. Hoge",
+                        "基础词汇，语速发音友好",
+                    ],
+                    [
+                        "https://www.allearsenglish.com/",
+                        "All Ears English",
+                        "地道美式英语会话学习",
+                    ],
+                    [
+                        "https://www.youtube.com/@SpeakEnglishWithTiffani",
+                        "Speak English With Tiffani",
+                        "英语学习方法与小技巧",
+                    ],
+                    [
+                        "https://www.eslpod.com/",
+                        "ESL Pod",
+                        "清晰慢速的英语对话",
+                    ],
+                    [
+                        "https://www.youtube.com/@LEP-LearnEnglishPodcast",
+                        "LEP",
+                        "A2+和B1水平，每期10分钟小话题",
+                    ],
+                    [
+                        "https://www.youtube.com/@CloudEnglish",
+                        "Cloud English",
+                        "语速适中，适合初学者",
+                    ],
+                    [
+                        "https://coffeebreaklanguages.com/english/",
+                        "Coffee Break English",
+                        "每集15分钟，初学者和中级",
+                    ],
+                    [
+                        "https://www.bbc.co.uk/learningenglish/english/features/6-minute-english",
+                        "6 Minute English",
+                        "简短高效的英语课程",
+                    ],
+                    [
+                        "https://learningenglish.voanews.com/podcasts",
+                        "VOA Learning English",
+                        "美国之音播客",
+                    ],
+                    [
+                        "https://teacherluke.co.uk/",
+                        "Luke's English Podcast",
+                        "专业英语教师主讲",
+                    ],
+                    [
+                        "https://www.podcastsinenglish.com/",
+                        "Podcasts in English",
+                        "覆盖初学者到高级学习者",
+                    ],
+                    [
+                        "https://www.leonardoenglish.com/podcasts",
+                        "English for Curious Minds",
+                        "中高级学习者，探索世界",
+                    ],
+                    [
+                        "https://learnenglishpod.com/",
+                        "learnenglishpod",
+                        "有趣的课程和讨论",
+                    ],
+                    [
+                        "https://esl.culips.com/",
+                        "Culips ESL Podcast",
+                        "专业教师制作，学习变有趣",
+                    ],
+                    [
+                        "https://www.youtube.com/@BusinessEnglishPod",
+                        "Business English",
+                        "商务英语教学",
+                    ],
+                    [
+                        "https://www.youtube.com/@simpleenglishforbeginners",
+                        "Simple English",
+                        "轻松高效的学习技巧，B1级别",
+                    ],
+                    [
+                        "https://www.youtube.com/@dankoetalks",
+                        "Dan Koe",
+                        "个人发展与创业策略",
+                    ],
+                    [
+                        "https://www.youtube.com/@melrobbins",
+                        "Mel Robbins",
+                        "励志演说家，克服障碍策略",
+                    ],
+                ],
+                "s-techpod": [
+                    [
+                        "https://techcrunch.com/podcast",
+                        "TechCrunch Podcast",
+                        "最新科技新闻",
+                    ],
+                    [
+                        "https://twit.tv/shows/this-week-in-tech",
+                        "This Week in Tech",
+                        "每周科技话题讨论",
+                    ],
+                    [
+                        "https://syntax.fm/",
+                        "Syntax.fm",
+                        "通俗易懂的Web开发讲解",
+                    ],
+                    [
+                        "https://www.relay.fm/clockwise",
+                        "Clockwise",
+                        "节奏快、时效性强",
+                    ],
+                    [
+                        "https://codestory.co/",
+                        "Code Story",
+                        "世界级科技的起起落落",
+                    ],
+                    [
+                        "https://dailytechnewsshow.com/",
+                        "Daily Tech News Show",
+                        "每天最重要的科技新闻",
+                    ],
+                    [
+                        "https://www.wsj.com/podcasts/tech-news-briefing",
+                        "WSJ Tech News",
+                        "华尔街日报科技新闻",
+                    ],
+                    [
+                        "https://www.youtube.com/@20vc",
+                        "20VC",
+                        "风投领域顶尖对话",
+                    ],
+                    [
+                        "https://www.youtube.com/@timferriss",
+                        "Tim Ferriss",
+                        "拆解成功人士方方面面",
+                    ],
+                ],
+                "s-interview": [
+                    [
+                        "https://www.npr.org/programs/ted-radio-hour/",
+                        "TED Radio Hour",
+                        "发人深省的访谈节目",
+                    ],
+                    [
+                        "https://www.youtube.com/@lexfridman",
+                        "Lex Fridman",
+                        "各行各业大佬访谈",
+                    ],
+                    [
+                        "https://www.npr.org/programs/fresh-air/",
+                        "Fresh Air",
+                        "深度对话节目",
+                    ],
+                    [
+                        "https://www.youtube.com/@hubermanlab",
+                        "Andrew Huberman",
+                        "科学通俗知识传播",
+                    ],
+                    [
+                        "https://www.youtube.com/@joerogan",
+                        "PowerfulJRE",
+                        "2-3小时深度对话",
+                    ],
+                    [
+                        "https://www.youtube.com/@TomBilyeu",
+                        "Tom Bilyeu",
+                        "成功人士故事和经验",
+                    ],
+                    [
+                        "https://www.youtube.com/@H3Podcast",
+                        "H3 Podcast",
+                        "网红艺人文化人物",
+                    ],
+                    [
+                        "https://www.youtube.com/@FirstWeFeast",
+                        "First We Feast",
+                        "边吃辣翅边访谈",
+                    ],
+                    [
+                        "https://www.youtube.com/@TheGrahamStephanShow",
+                        "Graham Stephan Show",
+                        "金融创业者访谈",
+                    ],
+                    [
+                        "https://www.youtube.com/@garyvee",
+                        "GaryVee",
+                        "创业营销个人品牌",
+                    ],
+                    [
+                        "https://www.youtube.com/@bigthink",
+                        "Big Think",
+                        "短格式思想领袖访谈",
+                    ],
+                    [
+                        "https://www.youtube.com/@BreakfastClubPower1051FM",
+                        "Breakfast Club",
+                        "嘻哈文化娱乐新闻",
+                    ],
+                ],
+                "s-talkshow": [
+                    [
+                        "https://www.youtube.com/c/TheDailyShow",
+                        "The Daily Show",
+                        "政治讽刺脱口秀",
+                    ],
+                    [
+                        "https://www.youtube.com/c/fallontonight",
+                        "Jimmy Fallon",
+                        "轻松有趣名人采访",
+                    ],
+                    [
+                        "https://www.youtube.com/c/JimmyKimmelLive",
+                        "Jimmy Kimmel Live",
+                        "名人采访搞笑短片",
+                    ],
+                    [
+                        "https://www.youtube.com/c/TeamCoco",
+                        "Team Coco",
+                        "柯南幽默风趣脱口秀",
+                    ],
+                    [
+                        "https://www.youtube.com/@LastWeekTonight",
+                        "Last Week Tonight",
+                        "深度社会议题剖析",
+                    ],
+                    [
+                        "https://www.youtube.com/@ColbertLateShow",
+                        "Stephen Colbert",
+                        "机智犀利新闻热点",
+                    ],
+                ],
+                "s-radio": [
+                    ["https://www.npr.org/", "NPR", "新闻文化科技多元内容"],
+                    [
+                        "https://www.bbc.co.uk/sounds",
+                        "BBC Radio",
+                        "多频道英式英语",
+                    ],
+                    [
+                        "https://www.abc.net.au/listen/radio",
+                        "ABC Radio",
+                        "澳大利亚英语",
+                    ],
+                    ["https://tunein.com/", "TuneIn Radio", "全球电台免费收听"],
+                    [
+                        "https://www.audacy.com/",
+                        "Radio.com",
+                        "美国主流电台集合",
+                    ],
+                    [
+                        "https://www.iheart.com/",
+                        "iHeartRadio",
+                        "大量直播电台和播客",
+                    ],
+                    ["https://www.wnyc.org/", "WNYC", "纽约公共电台"],
+                    [
+                        "https://www.rnz.co.nz/radio",
+                        "Radio New Zealand",
+                        "新西兰国家电台",
+                    ],
+                    [
+                        "https://www.espn.com/espnradio/",
+                        "ESPN Radio",
+                        "体育新闻评论直播",
+                    ],
+                    [
+                        "https://theonestopradio.com/",
+                        "OneStop Radio",
+                        "全球190+国家67000+电台",
+                    ],
+                    ["https://radio.garden/", "Radio Garden", "全球广播电台"],
+                ],
+                "s-asmr": [
+                    [
+                        "https://www.youtube.com/watch?v=_VzWYTVPW6E",
+                        "The White Rabbit ASMR",
+                        "英语语法教学",
+                    ],
+                    [
+                        "https://www.youtube.com/user/WhispersRedASMR",
+                        "WhispersRed ASMR",
+                        "英国英语角色扮演",
+                    ],
+                    [
+                        "https://www.youtube.com/watch?v=zQsV8VoOkrE",
+                        "ASMR Teacher",
+                        "放松词汇课语音缓慢",
+                    ],
+                    [
+                        "https://www.youtube.com/watch?v=y4kNe7sRYJs",
+                        "Teacher Tutors You",
+                        "模拟辅导场景",
+                    ],
+                ],
+                "s-speak": [
+                    [
+                        "https://chatgpt.com/",
+                        "ChatGPT",
+                        "GPT高级语音功能口语对话",
+                    ],
+                    [
+                        "https://www.youtube.com/@SpeakEnglishWithVanessa",
+                        "Vanessa",
+                        "发音技巧自然交谈",
+                    ],
+                    [
+                        "https://www.youtube.com/@AccurateEnglish",
+                        "AccurateEnglish",
+                        "专业发音训练",
+                    ],
+                    [
+                        "https://www.conversationexchange.com/",
+                        "Conversation Exchange",
+                        "免费语言交换平台",
+                    ],
+                    ["https://www.italki.com/", "iTalki", "外教一对一教学"],
+                    [
+                        "https://www.duolingo.com/",
+                        "Duolingo",
+                        "发音练习和实时反馈",
+                    ],
+                    ["https://www.cambly.com/", "Cambly", "与母语者练习口语"],
+                    ["https://www.tandem.net/", "Tandem", "语言交换应用"],
+                    ["https://www.hellotalk.com/", "HelloTalk", "寻找语言伙伴"],
+                    ["https://speechling.com/", "Speechling", "获取发音反馈"],
+                    [
+                        "https://smalltalk2.me/",
+                        "SmallTalk2Me",
+                        "AI驱动口语练习",
+                    ],
+                    [
+                        "https://www.bilibili.com/video/BV1Ji4y1P7Lu",
+                        "发音舌位图解",
+                        "具体舌位图帮助发音",
+                    ],
+                ],
+            };
+            for (const [id, items] of Object.entries(D)) {
+                const el = document.getElementById(id);
+                if (el)
+                    el.innerHTML = items
+                        .map((i) => C(i[0], i[1], i[2]))
+                        .join("");
+            }
+
+            const D2 = {
+                "s-yt": [
+                    [
+                        "https://www.youtube.com/c/EnglishwithLucy",
+                        "English with Lucy",
+                        "人气英语教学",
+                    ],
+                    [
+                        "https://www.youtube.com/user/rachelsenglish",
+                        "Rachel's English",
+                        "专注发音教学",
+                    ],
+                    [
+                        "https://www.youtube.com/@slowenglishwithbrian",
+                        "Slow English With Brian",
+                        "慢速清晰教学备考TOEIC",
+                    ],
+                    ["https://www.youtube.com/@TED", "TED", "高质量演讲频道"],
+                    [
+                        "https://www.youtube.com/@englishbyjay.official",
+                        "English by Jay",
+                        "生活Vlog可理解输入",
+                    ],
+                    [
+                        "https://www.youtube.com/user/bbclearningenglish",
+                        "BBC Learning English",
+                        "BBC官方教学",
+                    ],
+                    [
+                        "https://www.youtube.com/@xingrong-english",
+                        "星荣英语笔记",
+                        "最适合国人的零基础课程",
+                    ],
+                    [
+                        "https://www.youtube.com/@simpleenglishtext",
+                        "Simple English Text",
+                        "A1-A2慢速英语",
+                    ],
+                    [
+                        "https://www.youtube.com/@pensandoingles6884",
+                        "Pensando Inglés",
+                        "可理解输入A1-B1",
+                    ],
+                    [
+                        "https://www.youtube.com/@volkaenglish",
+                        "Volka",
+                        "可理解输入轻松活泼",
+                    ],
+                    [
+                        "https://www.youtube.com/@englishattheready",
+                        "English At The Ready",
+                        "Michael老师英语知识",
+                    ],
+                    [
+                        "https://www.youtube.com/user/ENGLISHCLASS101",
+                        "EnglishClass101",
+                        "系统化英语课程",
+                    ],
+                    [
+                        "https://www.youtube.com/@engfluenttv",
+                        "EngFluent",
+                        "快速提升口语表达",
+                    ],
+                    [
+                        "https://www.youtube.com/c/LearnEnglishWithTVSeries",
+                        "Learn English with TV Series",
+                        "通过美剧学英语",
+                    ],
+                    [
+                        "https://www.youtube.com/@mmmEnglish_Emma",
+                        "mmmEnglish",
+                        "澳大利亚实用口语",
+                    ],
+                    [
+                        "https://www.youtube.com/@engvidJames",
+                        "ENGLISH with James",
+                        "深入语法学术写作",
+                    ],
+                    [
+                        "https://www.youtube.com/@engvidEmma",
+                        "English with Emma",
+                        "美式日常地道表达",
+                    ],
+                    [
+                        "https://www.youtube.com/@EnglishAnyone",
+                        "EnglishAnyone",
+                        "课堂板书流利口语",
+                    ],
+                    [
+                        "https://www.youtube.com/@EnglishLikeANative",
+                        "English Like A Native",
+                        "英式发音文化习语",
+                    ],
+                    [
+                        "https://www.youtube.com/@E2IELTS",
+                        "E2 IELTS",
+                        "IELTS考试技巧",
+                    ],
+                    [
+                        "https://www.youtube.com/@EnglishSpeeches",
+                        "English Speeches",
+                        "各种带字幕英语演讲",
+                    ],
+                    [
+                        "https://www.youtube.com/@practicemakesfluent",
+                        "终身学外语",
+                        "反复听的英语对话练习",
+                    ],
+                    [
+                        "https://www.youtube.com/@ChinaZone-English",
+                        "China Zone",
+                        "英语配音中国电视剧",
+                    ],
+                    [
+                        "https://www.youtube.com/@4000EssentialEnglishWords",
+                        "4000 Essential Words",
+                        "初到高级词汇提升",
+                    ],
+                    [
+                        "https://www.youtube.com/@CooEnglish",
+                        "Cool English",
+                        "多样化对话场景",
+                    ],
+                    [
+                        "https://www.youtube.com/@ComprehensibleEnglish",
+                        "English Comprehensible",
+                        "自然习得沉浸式学习",
+                    ],
+                    [
+                        "https://www.youtube.com/@EnglishFluencyJourney",
+                        "English Fluency Journey",
+                        "Anna老师改善口音",
+                    ],
+                    [
+                        "https://www.youtube.com/@yingyutu",
+                        "英语兔",
+                        "适合应试的英语知识",
+                    ],
+                    [
+                        "https://www.youtube.com/@ClubJamesStudios",
+                        "Club James Studios",
+                        "英语语法教程",
+                    ],
+                    [
+                        "https://www.youtube.com/@BrianWilesQuizzes",
+                        "Brian Wiles",
+                        "英语学习技巧",
+                    ],
+                    [
+                        "https://www.youtube.com/@CoolHistoryBros",
+                        "Cool History Bros",
+                        "英语动画中国神话历史",
+                    ],
+                    [
+                        "https://www.youtube.com/@thelinguist",
+                        "Steve Kaufmann",
+                        "已学会20种语言",
+                    ],
+                    [
+                        "https://www.youtube.com/@wooenglish",
+                        "通过故事学习英语",
+                        "A1-C2英语故事",
+                    ],
+                    [
+                        "https://www.youtube.com/@TEDEd",
+                        "TED-Ed",
+                        "动画短片涨知识",
+                    ],
+                    [
+                        "https://www.youtube.com/@stanfordgsb",
+                        "Stanford GSB",
+                        "斯坦福商学院职场英语",
+                    ],
+                    [
+                        "https://www.youtube.com/@DailyEnglishConversation",
+                        "Daily English Conversation",
+                        "日常英语磨耳朵",
+                    ],
+                    [
+                        "https://www.youtube.com/@britishcouncilenglish",
+                        "British Council",
+                        "英语微课深度节目",
+                    ],
+                    [
+                        "https://www.youtube.com/@engvidrebecca",
+                        "Learn with Rebecca",
+                        "基础到高级全面资源",
+                    ],
+                    [
+                        "https://www.youtube.com/@RealLifeEnglish1",
+                        "RealLife English",
+                        "走出教室说英语",
+                    ],
+                    [
+                        "https://www.youtube.com/@englishspeakingsuccess",
+                        "English Speaking Success",
+                        "英式发音雅思口语",
+                    ],
+                ],
+                "s-learnvid": [
+                    [
+                        "https://www.youtube.com/playlist?list=PLOHG5PB2LOcizYqruRC9KHm3AA6IjbfN5",
+                        "西游记英文版",
+                        "官方英文版语速友好",
+                    ],
+                    [
+                        "https://www.youtube.com/playlist?list=PLzQug2pV17x8hSMkFr0B8SaFp3HbxQHS3",
+                        "English Conversation Funny",
+                        "有趣英语情景喜剧",
+                    ],
+                    [
+                        "https://www.youtube.com/playlist?list=PLdYSWqTrWP2jyqWIdjsATbrb11uN_BMrF",
+                        "Extra English",
+                        "老友记式情景喜剧教学",
+                    ],
+                    [
+                        "https://www.bilibili.com/video/BV1TD4y1q7u9",
+                        "用英语思考",
+                        "无需翻译轻松说英语",
+                    ],
+                    [
+                        "https://www.bilibili.com/video/BV1aD4y127GE",
+                        "颠覆英语认知·阅读篇",
+                        "可理解输入的重要性",
+                    ],
+                    [
+                        "https://www.bilibili.com/video/BV1tf4y1s7NN",
+                        "颠覆英语认知·听说篇",
+                        "解答语言学习所有问题",
+                    ],
+                    [
+                        "https://www.youtube.com/watch?v=Sj3WqZu4P0E&list=PL7QPSCAroBojgp9-X2Dv8gPpFhHLcqvKF",
+                        "新概念英语第一册",
+                        "讲师：霍娜老师",
+                    ],
+                    [
+                        "https://www.youtube.com/watch?v=SF8F62duryA&list=PL7QPSCAroBog_u72arS00YtJDBX0bFnXa",
+                        "新概念英语第二册",
+                        "讲师：田静老师",
+                    ],
+                    [
+                        "https://www.youtube.com/watch?v=GKPNUd33ca8&list=PL7QPSCAroBoi8lh1Nis2P8s-Kez06mjue",
+                        "新概念英语第三册",
+                        "讲师：李延隆老师",
+                    ],
+                    [
+                        "https://www.youtube.com/watch?v=SHH5tDljf5M&list=PL7QPSCAroBoguruChBG0rzSnvvn4MHAan",
+                        "新概念英语第四册",
+                        "讲师：李延隆老师",
+                    ],
+                ],
+                "s-vidsite": [
+                    [
+                        "https://www.netflix.com/",
+                        "Netflix",
+                        "大量英文影视+字幕",
+                    ],
+                    [
+                        "https://www.primevideo.com/",
+                        "Amazon Prime Video",
+                        "英文电影和原创内容",
+                    ],
+                    [
+                        "https://mobile.edatribe.com/",
+                        "英配部落",
+                        "大量英语配音动漫",
+                    ],
+                    ["https://www.cineby.app/", "Cineby", "免费英文影视"],
+                    ["https://www.bitcine.app/", "Bitcine", "免费英文影视"],
+                    ["https://freek.to/", "Freek", "免费英文影视（有广告）"],
+                    ["https://watch.plex.tv/", "Plex", "免费英文影视流媒体"],
+                    [
+                        "https://www.youtube.com/feed/storefront",
+                        "Youtube影视专区",
+                        "免费观看的影视",
+                    ],
+                    [
+                        "https://www.samfunny.com/",
+                        "点点字幕搜索",
+                        "美剧英剧字幕资源",
+                    ],
+                    [
+                        "https://ihavenotv.com/",
+                        "iHaveNoTV",
+                        "免费高质量英文纪录片",
+                    ],
+                ],
+                "s-news": [
+                    [
+                        "https://breakingnewsenglish.com/",
+                        "Breaking News English",
+                        "分级新闻文章",
+                    ],
+                    [
+                        "https://www.newsinlevels.com/",
+                        "News in Levels",
+                        "多难度级别新闻",
+                    ],
+                    [
+                        "https://simple.wikipedia.org/",
+                        "简明英语维基",
+                        "易于理解的维基百科",
+                    ],
+                    [
+                        "https://learningenglish.voanews.com/",
+                        "VOA慢速英语",
+                        "简化版新闻",
+                    ],
+                    [
+                        "https://www.englishcurrent.com/",
+                        "English Current",
+                        "带词汇解释的新闻",
+                    ],
+                    [
+                        "https://www.easyenglishnews.com/",
+                        "Easy English News",
+                        "简单英语新闻附音频",
+                    ],
+                    [
+                        "https://www.buzzing.cc/",
+                        "Buzzing",
+                        "全球热门新闻双语速览",
+                    ],
+                    [
+                        "https://theconversation.com/us",
+                        "The Conversation",
+                        "科学政治经济英语文章",
+                    ],
+                    [
+                        "https://englishnewsinlevels.com/",
+                        "English News in Levels",
+                        "分级世界新闻",
+                    ],
+                ],
+                "s-books": [
+                    [
+                        "https://z-library.sk/",
+                        "Z-library",
+                        "全球最大免费书籍下载",
+                    ],
+                    [
+                        "https://freemagazines.top/",
+                        "freemagazines",
+                        "免费外刊杂志下载",
+                    ],
+                    [
+                        "https://www.hoopladigital.com/",
+                        "Hoopla",
+                        "有声书电子书漫画",
+                    ],
+                    [
+                        "https://github.com/hehonghui/awesome-english-ebooks",
+                        "英语外刊杂志下载",
+                        "epub/mobi/pdf每周更新",
+                    ],
+                    ["https://www.obooko.com/", "obooko", "免费英语书籍下载"],
+                    [
+                        "https://www.wuxiaworld.com/",
+                        "Wuxiaworld",
+                        "中国网络文学英译",
+                    ],
+                    [
+                        "https://www.typelit.io/",
+                        "TypeLit",
+                        "练习文学作品提升打字",
+                    ],
+                    [
+                        "http://readpoopfiction.com/",
+                        "Poopfiction",
+                        "随机生成英语短故事",
+                    ],
+                    [
+                        "http://100wordstory.org/",
+                        "100 Word Story",
+                        "极短篇故事分享",
+                    ],
+                    [
+                        "http://zh.bilinguis.com/book/",
+                        "Bilinguis",
+                        "双语阅读词汇简单",
+                    ],
+                    ["https://longreads.com/", "Longreads", "长篇优质英语文章"],
+                    [
+                        "https://www.english-for-students.com/Short-Stories.html",
+                        "English Short Stories",
+                        "为学习者撰写的短文",
+                    ],
+                    [
+                        "https://americanliterature.com/",
+                        "American Literature",
+                        "经典文学语法用词简单",
+                    ],
+                    [
+                        "https://magazinelib.com/",
+                        "MagazineLib",
+                        "免费杂志PDF下载",
+                    ],
+                    ["https://monkeypen.com/", "MonkeyPen", "免费英语绘本下载"],
+                ],
+                "s-comics": [
+                    [
+                        "https://www.webtoons.com/en/",
+                        "Webtoon",
+                        "网络漫画多种题材",
+                    ],
+                    ["https://tapas.io/", "Tapas", "独立创作者漫画平台"],
+                    [
+                        "https://mangaplus.shueisha.co.jp/",
+                        "Manga Plus",
+                        "日漫英文免费阅读",
+                    ],
+                    [
+                        "https://mangapanda.onl/",
+                        "MangaPanda",
+                        "免费英文漫画在线阅读",
+                    ],
+                    ["https://mangadex.org/", "MangaDex", "在线看英文漫画"],
+                    ["https://bato.to/", "Bato", "免费在线漫画+论坛"],
+                ],
+            };
+            for (const [id, items] of Object.entries(D2)) {
+                const el = document.getElementById(id);
+                if (el)
+                    el.innerHTML = items
+                        .map((i) => C(i[0], i[1], i[2]))
+                        .join("");
+            }
+
+            const D3 = {
+                "s-webgame": [
+                    [
+                        "https://www.gamestolearnenglish.com/",
+                        "Games to Learn English",
+                        "词汇语法听力小游戏",
+                    ],
+                    [
+                        "https://www.abcmouse.com/games",
+                        "ABCMouse",
+                        "儿童教育游戏",
+                    ],
+                    [
+                        "https://www.eslgamesplus.com/",
+                        "ESL games",
+                        "互动游戏磨练英语",
+                    ],
+                    [
+                        "https://littlealchemy2.com/",
+                        "小小炼金术2",
+                        "元素组合学词汇",
+                    ],
+                    [
+                        "https://www.helpfulgames.com/subjects/english/",
+                        "Helpful games",
+                        "小游戏听说读写",
+                    ],
+                    ["https://knoword.com/", "Knoword", "游戏化词汇学习"],
+                    ["https://zty.pe/", "ztype", "英语打字射击"],
+                    [
+                        "https://www.humanbraincloud.com/",
+                        "Human Brain Cloud",
+                        "多人词语联想",
+                    ],
+                    ["https://itch.io/", "itch.io", "大量英语游戏平台"],
+                ],
+                "s-pcgame": [
+                    [
+                        "https://store.steampowered.com/app/274980/",
+                        "Influent",
+                        "单词发音学习",
+                    ],
+                    [
+                        "https://store.steampowered.com/app/1726360/",
+                        "Peter的英语冒险",
+                        "沉浸式英语体验",
+                    ],
+                    [
+                        "https://store.steampowered.com/app/1945590/",
+                        "Linguist FPS",
+                        "语言学习射击",
+                    ],
+                    [
+                        "https://store.steampowered.com/app/336240/",
+                        "字母人",
+                        "字母解谜创造单词",
+                    ],
+                    [
+                        "https://store.steampowered.com/app/914800/",
+                        "Coffee Talk",
+                        "咖啡馆对话小说",
+                    ],
+                    [
+                        "https://store.steampowered.com/app/1265920/",
+                        "奇异人生",
+                        "沉浸美国校园文化",
+                    ],
+                    [
+                        "https://store.steampowered.com/app/787480/",
+                        "逆转裁判系列",
+                        "法律术语阅读理解",
+                    ],
+                    [
+                        "https://store.steampowered.com/app/206440/",
+                        "To the Moon",
+                        "文学性语言情感词汇",
+                    ],
+                    [
+                        "https://store.steampowered.com/app/289070/",
+                        "文明系列",
+                        "各领域专业英语",
+                    ],
+                    [
+                        "https://store.steampowered.com/app/1771980/",
+                        "接线疑云",
+                        "互动解谜学英语",
+                    ],
+                ],
+                "s-onlinegame": [
+                    [
+                        "https://worldofwarcraft.blizzard.com/",
+                        "魔兽世界",
+                        "大量英语交流团队沟通",
+                    ],
+                    [
+                        "https://www.innersloth.com/games/among-us/",
+                        "我们之中",
+                        "社交推理练口语",
+                    ],
+                    [
+                        "https://store.steampowered.com/app/686810/",
+                        "人间地狱",
+                        "军事用语团队交流",
+                    ],
+                    [
+                        "https://genshin.hoyoverse.com/en/",
+                        "原神国际服",
+                        "英文界面+社区交流",
+                    ],
+                ],
+                "s-blogs": [
+                    [
+                        "https://english-e-reader.net/",
+                        "English e-Reader",
+                        "免费英语分级读物",
+                    ],
+                    ["https://lingoclip.com/", "Lingoclip", "通过音乐学语言"],
+                    [
+                        "https://www.runtoenglish.com/",
+                        "Run To English",
+                        "新概念英语平台",
+                    ],
+                    ["http://www.yygrammar.com/", "英语语法网", "清晰语法讲解"],
+                    ["https://visuwords.com/", "Visuwords", "交互式英语词典"],
+                    [
+                        "https://www.eapfoundation.com/",
+                        "EAP Foundation",
+                        "学术英语资源",
+                    ],
+                    [
+                        "https://www.youglish.com/",
+                        "Youglish",
+                        "YouTube片段学发音",
+                    ],
+                    ["https://quizlet.com/cn", "Quizlet", "在线词卡工具"],
+                    [
+                        "https://grammar.codeyu.com/",
+                        "玄元祐语法",
+                        "应试语法写作",
+                    ],
+                    ["https://wordsfunny.com/", "WordsFunny", "全栈单词学习"],
+                    [
+                        "https://freesubtitles.ai/",
+                        "FreeSubtitles",
+                        "免费生成视频字幕",
+                    ],
+                    [
+                        "https://en.atomiclearning.app/",
+                        "Atomic Learning",
+                        "每日听力训练",
+                    ],
+                    [
+                        "https://thecrashcourse.com/",
+                        "Crash Course",
+                        "高质量教育视频",
+                    ],
+                    [
+                        "https://www.englishbanana.com/",
+                        "EnglishBanana",
+                        "4000页免费资源",
+                    ],
+                    [
+                        "https://engoo.com/app/materials/en",
+                        "engoo",
+                        "精致教材各级别",
+                    ],
+                    [
+                        "https://read.english-reader.com/",
+                        "English Reader",
+                        "一键查词朗读翻译",
+                    ],
+                    ["https://tv.garden/", "TV Garden", "全世界电视台"],
+                    [
+                        "https://learnenai.com/",
+                        "AI学习新概念英语",
+                        "词汇语法中英对照",
+                    ],
+                    [
+                        "https://culturepedia.chinadaily.com.cn/",
+                        "Chinese Culturepedia",
+                        "学英语了解中国文化",
+                    ],
+                    ["https://www.voicetube.com/", "VoiceTube", "视频双语字幕"],
+                    [
+                        "https://www.triviaduel.com/",
+                        "Triviaduel",
+                        "全英文知识问答",
+                    ],
+                    ["https://character.ai/", "Character AI", "模拟对话场景"],
+                    [
+                        "https://www.languageguide.org/cn/",
+                        "LanguageGuide",
+                        "交互式语音词汇",
+                    ],
+                    ["https://esl-bits.eu/", "ESL Bits", "英语有声书全集"],
+                    [
+                        "https://www.finedictionary.com/",
+                        "FineDictionary",
+                        "文艺范英语词典",
+                    ],
+                    [
+                        "https://neal.fun/infinite-craft/",
+                        "Infinite Craft",
+                        "组合元素学词汇",
+                    ],
+                    [
+                        "https://letmeenglish.com/",
+                        "LetMeEnglish",
+                        "免费内容和练习",
+                    ],
+                ],
+                "s-x": [
+                    [
+                        "https://x.com/grammarenglis",
+                        "@grammarenglis",
+                        "英语语法",
+                    ],
+                    ["https://x.com/ajhoge", "@ajhoge", "英语教学专家"],
+                    [
+                        "https://x.com/learnenglishtip",
+                        "@learnenglishtip",
+                        "学习技巧",
+                    ],
+                    [
+                        "https://x.com/Egrammertipss",
+                        "@Egrammertipss",
+                        "语法技巧",
+                    ],
+                    ["https://x.com/duolingo", "@duolingo", "多邻国官方"],
+                    ["https://x.com/EnglishClub", "@EnglishClub", "英语俱乐部"],
+                ],
+                "s-tg": [
+                    [
+                        "https://t.me/BritishEnglishforall",
+                        "British English for all",
+                        "每天英语小知识",
+                    ],
+                    [
+                        "https://t.me/English_Grammar_IELTS_TOEFL",
+                        "Grammar IELTS TOEFL",
+                        "语法练习考试",
+                    ],
+                    [
+                        "https://t.me/Podcast_English_listening",
+                        "Podcast English",
+                        "主题播客训练听力",
+                    ],
+                    [
+                        "https://t.me/Ingliztiliuzz",
+                        "Improve Your English",
+                        "中级习语阅读",
+                    ],
+                    [
+                        "https://t.me/English_Books_Novels_magazines",
+                        "English Books",
+                        "杂志文学下载",
+                    ],
+                    [
+                        "https://t.me/EnglishDaybyDay",
+                        "English of the Day",
+                        "英语短视频",
+                    ],
+                    [
+                        "https://t.me/English_chatting_club_Global",
+                        "English Chatting Club",
+                        "全球英语交流",
+                    ],
+                ],
+                "s-bili": [
+                    [
+                        "https://space.bilibili.com/323794482",
+                        "罗肖尼Shawney",
+                        "英语学习博主",
+                    ],
+                    [
+                        "https://space.bilibili.com/483162496",
+                        "英语兔",
+                        "英语知识分享",
+                    ],
+                    [
+                        "https://space.bilibili.com/1322170180",
+                        "赖世雄讲英语",
+                        "赖世雄英语教学",
+                    ],
+                    ["https://b23.tv/3GKoAUT", "考研英语田静", "考研英语名师"],
+                    ["https://b23.tv/Z5gU8PM", "张俊杰老师", "英语教学"],
+                    [
+                        "https://space.bilibili.com/388576777",
+                        "英语的平行世界",
+                        "英语学习",
+                    ],
+                ],
+                "s-tools": [
+                    [
+                        "https://github.com/ankitects/anki",
+                        "Anki",
+                        "间隔重复记忆软件",
+                    ],
+                    [
+                        "https://github.com/solidSpoon/DashPlayer",
+                        "DashPlayer",
+                        "英语学习播放器",
+                    ],
+                    ["https://hub.lexile.com/", "Lexile", "蓝思指数找读物"],
+                    ["https://1000h.org/", "Enjoy", "开源AI英语助教"],
+                    [
+                        "https://www.playphrase.me/",
+                        "PlayPhrase",
+                        "电影片段学短语",
+                    ],
+                    ["https://www.babelabc.com/", "巴别英语", "影视片段学口语"],
+                    ["https://www.grammarly.com/", "Grammarly", "写作语法检查"],
+                    [
+                        "https://fixmymessage.com/",
+                        "Fix My Message",
+                        "免费AI语法检查",
+                    ],
+                    [
+                        "https://www.vocabulary.com/",
+                        "Vocabulary.com",
+                        "在线词汇学习",
+                    ],
+                    ["https://enpuz.com/", "Enpuz", "AI句子语法分析"],
+                    [
+                        "https://prowritingaid.com/",
+                        "Prowriting",
+                        "英语写作润色",
+                    ],
+                    [
+                        "https://www.languagereactor.com/",
+                        "Language Reactor",
+                        "视频语言学习插件",
+                    ],
+                    [
+                        "https://www.onlinecorrection.com/",
+                        "OnlineCorrection",
+                        "在线语法检查",
+                    ],
+                    ["https://getyarn.io/", "GetYarn", "搜索影视台词"],
+                    ["https://tastedive.com/", "TasteDive", "智能推荐学习材料"],
+                    [
+                        "https://github.com/Kaiyiwing/qwerty-learner",
+                        "qwerty",
+                        "键盘单词记忆",
+                    ],
+                    [
+                        "https://github.com/cuixueshe/earthworm",
+                        "Earthworm",
+                        "连词成句习得英语",
+                    ],
+                    ["https://elevenlabs.io/", "ElevenLabs", "AI语音合成"],
+                    [
+                        "https://github.com/umlx5h/LLPlayer",
+                        "LLPlayer",
+                        "开源语言学习播放器",
+                    ],
+                    ["https://wordforest.cn/", "单词森林", "简洁实用单词学习"],
+                    [
+                        "https://github.com/zyronon/typing-word",
+                        "Typing Word",
+                        "敲键盘背单词",
+                    ],
+                    ["https://saywow.ai/", "SayWow", "说英语闯关游戏"],
+                    [
+                        "https://www.bubeijuzi.com/",
+                        "不背句子",
+                        "新概念课文默写",
+                    ],
+                    ["https://ddjdc.com/", "多多记单词", "艾宾浩斯在线背词"],
+                ],
+                "s-exam": [
+                    ["https://b23.tv/UGQisv4", "零基础英语", "小学到中考考点"],
+                    [
+                        "https://b23.tv/VZic7Rs",
+                        "语法大全精讲",
+                        "小学到大学语法",
+                    ],
+                    [
+                        "https://b23.tv/0NE8quT",
+                        "英语语法自学",
+                        "语法入门到高级",
+                    ],
+                ],
+                "s-other": [
+                    [
+                        "https://github.com/byoungd/English-level-up-tips",
+                        "English-level-up-tips",
+                        "全面英语学习指南",
+                    ],
+                    [
+                        "https://hzpt-inet-club.github.io/english-note/",
+                        "英语语法笔记",
+                        "从0开始学语法",
+                    ],
+                    [
+                        "https://github.com/shimohq/chinese-programmer-wrong-pronunciation",
+                        "程序员发音纠正",
+                        "易错发音汇总",
+                    ],
+                    [
+                        "https://github.com/yujiangshui/A-Programmers-Guide-to-English",
+                        "程序员英语指南",
+                        "专为程序员编写",
+                    ],
+                    [
+                        "https://www.freecodecamp.org/news/learn-any-language-with-ai/",
+                        "使用AI学习语言",
+                        "ChatGPT+DeepSeek",
+                    ],
+                    [
+                        "https://www.freecodecamp.org/learn/a2-english-for-developers/",
+                        "开发者英语认证",
+                        "freeCodeCamp认证",
+                    ],
+                ],
+                "s-courses": [
+                    [
+                        "https://www.coursera.org/courses?query=english%20speaking",
+                        "Coursera",
+                        "知名在线课程",
+                    ],
+                    [
+                        "https://www.udemy.com/topic/english-language/",
+                        "Udemy",
+                        "丰富英语课程",
+                    ],
+                    [
+                        "https://www.edx.org/learn/english",
+                        "edX",
+                        "高校英语课程",
+                    ],
+                    [
+                        "https://www.futurelearn.com/subjects/languages-and-cultures-courses/learn-english",
+                        "Future Learn",
+                        "语言文化课程",
+                    ],
+                    [
+                        "https://study.163.com/category/480000004129001",
+                        "网易云英语课堂",
+                        "中文平台英语课",
+                    ],
+                ],
+                "s-kids": [
+                    [
+                        "https://www.youtube.com/user/LittleFoxKids",
+                        "Little Fox",
+                        "英文动画片儿歌",
+                    ],
+                    [
+                        "https://www.youtube.com/@PeppaPigOfficial",
+                        "Peppa Pig",
+                        "小猪佩奇英配",
+                    ],
+                    [
+                        "https://www.youtube.com/@SuperSimpleSongs",
+                        "Super Simple Songs",
+                        "简单英文儿歌",
+                    ],
+                    [
+                        "https://www.youtube.com/@ChuChuTV",
+                        "ChuChu TV",
+                        "儿童歌曲教育",
+                    ],
+                    [
+                        "https://freekidsbooks.org/",
+                        "Free Kids Books",
+                        "免费儿童英文书",
+                    ],
+                    [
+                        "https://www.youtube.com/@kidshut",
+                        "T-Series Kids Hut",
+                        "英文儿歌和故事",
+                    ],
+                ],
+            };
+            for (const [id, items] of Object.entries(D3)) {
+                const el = document.getElementById(id);
+                if (el)
+                    el.innerHTML = items
+                        .map((i) => C(i[0], i[1], i[2]))
+                        .join("");
+            }
+        </script>
+    </body>
+</html>
